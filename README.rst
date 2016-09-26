@@ -1,3 +1,6 @@
+.. image:: https://api.travis-ci.org/glencoesoftware/omero-reader.png
+   :target: http://travis-ci.org/glencoesoftware/omero-reader
+
 .. image:: https://badge.fury.io/py/omero-reader.svg
     :target: https://badge.fury.io/py/omero-reader
 
