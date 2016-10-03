@@ -247,7 +247,8 @@ class OmeroReader(object):
         log.debug("Pixel range [%s, %s]" % (min_value, max_value))
         if rescale or pixel_type == 'double':
             log.info("Rescaling image using [%s, %s]" % (min_value, max_value))
-            # Note: The result here differs from: https://github.com/emilroz/python-bioformats/blob/a60b5c5a5ae018510dd8aa32d53c35083956ae74/bioformats/formatreader.py#L903
+            # Note: The result here differs from:
+            #     https://github.com/emilroz/python-bioformats/blob/a60b5c5a5ae018510dd8aa32d53c35083956ae74/bioformats/formatreader.py#L903
             # Reason: the unsigned types are being properly taken into account
             # and converted to [0, 1] using their full scale.
             # Further note: float64 should be used for the numpy array in case
