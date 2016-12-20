@@ -23,7 +23,7 @@ try:
 except Exception, e:
     OMERO_IMPORTED = False
 
-log = logging.getLogger('gs_utils.omero_reader')
+log = logging.getLogger(__name__)
 
 
 '''
