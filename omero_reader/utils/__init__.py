@@ -18,21 +18,11 @@ log = logging.getLogger(__name__)
 
 def omero_reader_enabled():
     try:
-        value = int(os.environ['OMERO_READER_ENABLED'])
-        return bool(value)
+        return int(os.environ.get('OMERO_READER_ENABLED', 0)) != 0
     except ValueError:
-        message = "OMERO_READER_ENEABLED value should be 0 or 1"
-        log.error(message)
-        return False
-    except KeyError:
-        message = "Environment varible OMERO_READER_ENEABLED not set"
-        log.warning(message)
+        log.error("OMERO_READER_ENABLED value should be 0 or 1")
         return False
 
 
 def omero_on_the_path():
-    try:
-        sys.modules['omero.clients']
-        return True
-    except KeyError:
-        return False
+    return 'omero.clients' in sys.modules
