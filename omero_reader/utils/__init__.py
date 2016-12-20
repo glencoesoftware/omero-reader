@@ -22,7 +22,3 @@ def omero_reader_enabled():
     except ValueError:
         log.error("OMERO_READER_ENABLED value should be 0 or 1")
         return False
-
-
-def omero_on_the_path():
-    return 'omero.clients' in sys.modules

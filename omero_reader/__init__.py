@@ -20,8 +20,8 @@ OMERO_IMPORTED = False
 try:
     import omero.clients
     OMERO_IMPORTED = True
-except Exception, e:
-    OMERO_IMPORTED = False
+except ImportError:
+    pass
 
 log = logging.getLogger(__name__)
 
