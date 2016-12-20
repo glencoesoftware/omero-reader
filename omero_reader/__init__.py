@@ -34,7 +34,7 @@ For the implementation that's mirrored in here look at:
 '''
 
 
-def pixelRange(byte_width, signed):
+def pixel_range(byte_width, signed):
     max_value = 2 ** (8 * byte_width)
     if signed:
         return (- (max_value / 2.0), (max_value / 2.0) - 1)
@@ -44,15 +44,15 @@ def pixelRange(byte_width, signed):
 
 class OmeroReader(object):
 
-    REGEX_INDEX_FROM_FILE_NAME = r'[^\d-]+'
+    REGEX_INDEX_FROM_FILE_NAME = re.compile(r'[^\d-]+')
     PIXEL_TYPES = {
-        "int8":   ['b', numpy.int8,    pixelRange(1, True)],
-        "uint8":  ['B', numpy.uint8,   pixelRange(1, False)],
-        "int16":  ['h', numpy.int16,   pixelRange(2, True)],
-        "uint16": ['H', numpy.uint16,  pixelRange(2, False)],
-        "int32":  ['i', numpy.int32,   pixelRange(4, True)],
-        "uint32": ['I', numpy.uint32,  pixelRange(4, False)],
-        "float":  ['f', numpy.float32, (0, 1)],
+        "int8": ['b', numpy.int8, pixel_range(1, True)],
+        "uint8": ['B', numpy.uint8, pixel_range(1, False)],
+        "int16": ['h', numpy.int16, pixel_range(2, True)],
+        "uint16": ['H', numpy.uint16, pixel_range(2, False)],
+        "int32": ['i', numpy.int32, pixel_range(4, True)],
+        "uint32": ['I', numpy.uint32, pixel_range(4, False)],
+        "float": ['f', numpy.float32, (0, 1)],
         "double": ['d', numpy.float64, (0, 1)]}
     SCALE_ONE_TYPE = ["float", "double"]
 
@@ -80,7 +80,7 @@ class OmeroReader(object):
         self.width = None
         self.height = None
         self.metadata = None
-        self.extract_id = re.compile(self.REGEX_INDEX_FROM_FILE_NAME)
+        self.extract_id = self.REGEX_INDEX_FROM_FILE_NAME
         # Needed for CellProfiler's reader caching
         self.path = url
 
