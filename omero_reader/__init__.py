@@ -19,7 +19,7 @@ from struct import unpack
 OMERO_IMPORTED = False
 try:
     import omero.clients
-    OMERO_IMPORTED = False
+    OMERO_IMPORTED = True
 except Exception, e:
     OMERO_IMPORTED = False
 
