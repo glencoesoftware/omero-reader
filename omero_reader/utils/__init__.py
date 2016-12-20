@@ -9,9 +9,8 @@
 # info@glencoesoftware.com.
 #
 
-
-import os
 import logging
+import os
 import sys
 
 log = logging.getLogger()
