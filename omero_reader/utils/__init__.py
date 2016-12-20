@@ -13,7 +13,7 @@ import logging
 import os
 import sys
 
-log = logging.getLogger()
+log = logging.getLogger(__name__)
 
 
 def omero_reader_enabled():
