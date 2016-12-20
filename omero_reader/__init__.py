@@ -9,11 +9,11 @@
 # info@glencoesoftware.com.
 #
 
-
-import numpy
-from struct import unpack
-import re
 import logging
+import numpy
+import re
+
+from struct import unpack
 
 
 OMERO_IMPORTED = False
