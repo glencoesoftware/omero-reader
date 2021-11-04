@@ -127,6 +127,7 @@ class OmeroReader(object):
         # Initialize client object if does not exists
         if self.client is None:
             self.client = omero.client(self.host)
+            self.client.enableKeepAlive(60)
         # Connect to the server
         try:
             self.session = self.client.joinSession(self.session_id)
