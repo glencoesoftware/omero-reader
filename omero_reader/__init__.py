@@ -225,7 +225,7 @@ class OmeroReader(object):
             message = "T index %s exceeds sizeT %s" % \
                       (t, self.pixels.getSizeT().val)
             log.error(message)
-        if c >= self.pixels.getSizeC().val:
+        if (c or 0) >= self.pixels.getSizeC().val:
             message = "C index %s exceeds sizeC %s" % \
                       (c, self.pixels.getSizeC().val)
             log.error(message)
